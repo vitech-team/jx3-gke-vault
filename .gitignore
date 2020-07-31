@@ -14,4 +14,8 @@
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
+# IDE files
 .idea 
+
+# lets avoid checking in terraform state in case it has passwords and we are public repo
+*.tfstate
