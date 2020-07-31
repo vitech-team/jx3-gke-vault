@@ -8,10 +8,12 @@ We assume you have access to GCP and have modified the `main.mf` file to add you
 
 ## Creating/upgrading cloud resources
 
-You can run the `./bin/apply.sh` script or if you want to be explicit use terraform:
+Run the `./bin/apply.sh` script to generate the terraform resources and modify the `jx-requirements.yml` file
+
+Now git commit and push any changes...
 
 ```bash 
-terraform init
-terraform apply
+git add *
+git commit -a -m "chore: regenerated terraform"
 ```
 
