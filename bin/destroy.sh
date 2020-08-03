@@ -2,5 +2,5 @@
 
 set -e
 
-terraform destroy $*
+terraform destroy $TERRAFORM_APPROVE
 
