@@ -12,6 +12,6 @@ fi
 
 echo "this script modifies the `dirname "$0"`/../main.tf file..."
 
-sed -i "" -e "s/gcp_project = \".*\"/gcp_project = \"${PROJECT_ID}\"/" `dirname "$0"`/../main.tf
+sed -i -e "s/gcp_project = \".*\"/gcp_project = \"${PROJECT_ID}\"/" `dirname "$0"`/../main.tf
 
 
