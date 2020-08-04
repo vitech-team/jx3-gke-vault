@@ -110,6 +110,7 @@ double-apply:
 .PHONY: resolve-metadata
 resolve-metadata:
 	jx gitops requirements resolve -n
+	jx gitops image -s .jx
 
 .PHONY: commit
 commit:
