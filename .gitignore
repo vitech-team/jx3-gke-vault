@@ -17,5 +17,5 @@
 # IDE files
 .idea 
 
-# lets avoid checking in terraform state in case it has passwords and we are public repo
-*.tfstate
+# you may want to avoid checking in terraform state in case it has passwords and we are public repo
+#*.tfstate
