@@ -1,0 +1,14 @@
+bases:
+- environments.yaml
+releases:
+- chart: jenkins-x/jxboot-helmfile-resources
+- chart: external-secrets/kubernetes-external-secrets
+- chart: jx-labs/jenkins-x-crds
+- chart: stable/nginx-ingress
+- chart: jenkins-x/tekton
+- chart: jenkins-x/lighthouse
+- chart: jenkins-x/nexus
+- chart: jenkins-x/chartmuseum
+- chart: banzaicloud-stable/vault-operator
+- chart: jx-labs/vault-instance
+- chart: jx-labs/pusher-wave
