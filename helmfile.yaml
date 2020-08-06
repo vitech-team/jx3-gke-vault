@@ -7,7 +7,7 @@ environments:
     values:
     - jx-values.yaml
     - src/fake-secrets.yaml.gotmpl
-  releases:
+releases:
 - chart: jenkins-x/jxboot-helmfile-resources
 - chart: external-secrets/kubernetes-external-secrets
 - chart: jx-labs/jenkins-x-crds
