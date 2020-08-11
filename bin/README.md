@@ -34,8 +34,8 @@ Terraform will then setup your resources.
 Now make sure you git commit any modified files...
 
 ```bash 
-git add *
-git commit -a -m "fix: modified configuration"
+git commit -a -m "fix: configured project"
+git push
 ```
 
 
@@ -46,6 +46,8 @@ git commit -a -m "fix: modified configuration"
 But until then please install the git operator via:
 
 ```bash
+export GIT_USER="myPipelineUsername"
+export GIT_TOKEN="myPipelineUserToken"
 jx admin operator
 ```
 
