@@ -10,6 +10,14 @@ These instructions assume you have cloned this git repository and run `cd` into 
 ls -al bin/README.md
 ```
 
+You will also need to configure which GCP project you wish to use for your infrastructure. You can do this via an environment variable:
+
+```bash 
+export PROJECT_ID="my-gcp-project"
+./bin/configure.sh
+```
+
+
 ### Setup your resources
 
 Run the `./bin/apply.sh` script which effectively invokes:
@@ -19,7 +27,16 @@ terraform init
 terraform apply
 ```
 
-This will use terraform to setup your resources
+When prompted by terraform enter `yes` to proceed if you are happy with the plan.
+
+Terraform will then setup your resources. 
+
+Now make sure you git commit any modified files...
+
+```bash 
+git add *
+git commit -a -m "fix: modified configuration"
+```
 
 
 ### Install the git operator
