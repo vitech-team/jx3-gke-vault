@@ -1,9 +1,15 @@
 module "jx" {
-  source = "jenkins-x/jx/google"
-
+  source = "github.com/jenkins-x/terraform-google-jx?ref=v0.13.0-dev"
   gcp_project = "<my-gcp-project-id>"
+  jx2 = false
 }
 
-output "jx_requirements" {
-  value = module.jx.jx_requirements
+output "connect" {
+  description = "Connect to cluster"
+  value       = "${module.jx.connect}"
+}
+
+output "next_install" {
+  description = "Follow instructions to enable Jenkins X install via GitOps"
+  value       = "http://jenkins-x.io/foo"
 }
