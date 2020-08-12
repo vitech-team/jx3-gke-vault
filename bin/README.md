@@ -41,9 +41,7 @@ git push
 
 ### Install the git operator
 
-**NOTE** that soon we will be installing the git operator via Terraform, so these instructions will disappear. 
-
-But until then please install the git operator via:
+Please install the git operator via:
 
 ```bash
 export GIT_USER="myPipelineUsername"
@@ -51,3 +49,4 @@ export GIT_TOKEN="myPipelineUserToken"
 jx admin operator
 ```
 
+You can see more instructions 
