@@ -41,13 +41,11 @@ git push
 ```
 
 
-### Install the git operator
+## Install the git operator
 
 Please follow the [instructions on how to install the git operator](https://jenkins-x.io/docs/v3/guides/operator/) via the [jx admin operator](https://github.com/jenkins-x/jx-admin/blob/master/docs/cmd/jx-admin_operator.md) command:
 
 ```bash
-export GIT_USER="myPipelineUsername"
-export GIT_TOKEN="myPipelineUserToken"
 jx admin operator
 ```
 
