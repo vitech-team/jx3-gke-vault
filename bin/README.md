@@ -4,6 +4,8 @@ These instructions will walk you through setting up Jenkins X with Terraform
 
 ### Prerequisites
 
+You will need to make sure you have [installed the terraform binary](https://learn.hashicorp.com/tutorials/terraform/install-cli) into your `$PATH`.
+
 These instructions assume you have cloned this git repository and run `cd` into the clone directory so that you can see this `README.md` file by running:
 
 ```bash 
