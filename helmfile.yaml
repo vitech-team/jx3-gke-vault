@@ -19,3 +19,16 @@ releases:
 - chart: banzaicloud-stable/vault-operator
 - chart: jx-labs/vault-instance
 - chart: jx-labs/pusher-wave
+repositories:
+- name: jenkins-x
+  url: https://storage.googleapis.com/chartmuseum.jenkins-x.io
+- name: external-secrets
+  url: https://godaddy.github.io/kubernetes-external-secrets
+- name: jx-labs
+  url: https://storage.googleapis.com/jenkinsxio-labs-private/charts
+- name: stable
+  url: https://kubernetes-charts.storage.googleapis.com
+- name: banzaicloud-stable
+  url: https://kubernetes-charts.banzaicloud.com
+- name: jx3
+  url: https://storage.googleapis.com/jenkinsxio/charts
