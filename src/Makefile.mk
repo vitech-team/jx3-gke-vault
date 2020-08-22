@@ -19,8 +19,6 @@ clean:
 
 .PHONY: setup
 setup:
-	# lets create any missing SourceRepository defined in .jx/gitops/source-config.yaml which are not in: src/base/namespaces/jx/source-repositories
-	jx gitops repository create
 
 .PHONY: init
 init: setup
@@ -33,6 +31,9 @@ init: setup
 
 .PHONY: fetch
 fetch: init
+	# lets create any missing SourceRepository defined in .jx/gitops/source-config.yaml which are not in: src/base/namespaces/jx/source-repositories
+	jx gitops repository create
+
 	# lets configure the cluster gitops repository URL on the requirements if its missing
 	jx gitops repository resolve --source-dir $(OUTPUT_DIR)/namespaces
 
