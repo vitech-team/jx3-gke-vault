@@ -47,6 +47,7 @@ fetch: init
 
 	# this line avoids the next helmfile command failing...
 	helm repo add jx http://chartmuseum.jenkins-x.io
+        helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
 	# generate the yaml from the charts in helmfile.yaml and moves them to the right directory tree (cluster or namespaces/foo)
 	jx gitops helmfile template $(HELMFILE_TEMPLATE_FLAGS) --args="--include-crds --values=jx-values.yaml --values=src/fake-secrets.yaml.gotmpl" --output-dir $(OUTPUT_DIR)
