@@ -11,5 +11,5 @@ output "connect" {
 
 output "next_install" {
   description = "Follow instructions to enable Jenkins X install via GitOps"
-  value       = "http://jenkins-x.io/foo"
+  value       = "https://jenkins-x.io/docs/v3/guides/operator"
 }
