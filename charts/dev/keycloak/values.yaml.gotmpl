@@ -1,0 +1,10 @@
+keycloak:
+    ingress:
+        enabled: true
+        tls: []
+        rules:
+            - host: 'keycloak.{{ .Values.jxRequirements.ingress.domain | default "cluster.local" }}'
+              paths:
+              - /
+    postgresql:
+        enabled: true

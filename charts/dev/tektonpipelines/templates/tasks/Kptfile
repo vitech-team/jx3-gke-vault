@@ -1,0 +1,11 @@
+apiVersion: kpt.dev/v1alpha1
+kind: Kptfile
+metadata:
+  name: tasks
+upstream:
+  type: git
+  git:
+    commit: a28a4d640f8a3db85533df5a28a30ff1d1f86bd6
+    repo: https://github.com/vitech-team/tekton-pipelines-catalog
+    directory: tasks
+    ref: master

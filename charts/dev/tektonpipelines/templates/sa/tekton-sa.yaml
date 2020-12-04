@@ -1,0 +1,130 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: "tekton-build-bot"
+  labels:
+    gitops.jenkins-x.io/pipeline: 'cluster'
+rules:
+  - apiGroups:
+      - apiextensions.k8s.io
+    resources:
+      - customresourcedefinitions
+    verbs:
+      - list
+      - create
+      - get
+      - update
+  - apiGroups:
+      - ""
+    resources:
+      - namespaces
+    verbs:
+      - create
+      - get
+  - apiGroups:
+      - extensions
+    resources:
+      - ingresses
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - ""
+    resources:
+      - services
+    verbs:
+      - get
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: "tekton-build-bot-jx"
+  labels:
+    gitops.jenkins-x.io/pipeline: 'cluster'
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: "tekton-build-bot"
+    namespace: jx
+  - kind: ServiceAccount
+    name: "tekton-bot"
+    namespace: jx
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: "tekton-build-bot"
+  namespace: jx
+  labels:
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: "tekton-build-bot"
+subjects:
+  - kind: ServiceAccount
+    name: "tekton-build-bot"
+    namespace: jx
+---
+# Source: jxboot-helmfile-resources/templates/build-bot-role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: "tekton-build-bot"
+  namespace: jx
+  labels:
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+rules:
+  - apiGroups:
+      - "*"
+    resources:
+      - "*"
+    verbs:
+      - "*"
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: "tekton-build-bot"
+  {{- if and (hasKey .Values.jxRequirements.cluster "project") (hasKey .Values.jxRequirements.cluster "clusterName") (eq .Values.jxRequirements.cluster.provider "eks") }}
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::{{ .Values.jxRequirements.cluster.project }}:role/{{ .Values.jxRequirements.cluster.clusterName }}-tekton-bot
+  {{- else if eq .Values.jxRequirements.cluster.provider "gke" }}
+  annotations:
+    iam.gke.io/gcp-service-account: {{ .Values.jxRequirements.cluster.clusterName }}-tekton@{{ .Values.jxRequirements.cluster.project }}.iam.gserviceaccount.com
+  {{- else }}
+  annotations: {}
+  {{- end }}
+  namespace: jx
+  labels:
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+secrets:
+  - name: docker-registry-auth
+  - name: tekton-git
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tekton-build-bot
+  namespace: tekton-pipelines
+  labels:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/instance: default
+    app.kubernetes.io/part-of: tekton-pipelines
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  {{- if and (hasKey .Values.jxRequirements.cluster "project") (hasKey .Values.jxRequirements.cluster "clusterName") (eq .Values.jxRequirements.cluster.provider "eks") }}
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::{{ .Values.jxRequirements.cluster.project }}:role/{{ .Values.jxRequirements.cluster.clusterName }}-tekton-bot
+  {{- else if eq .Values.jxRequirements.cluster.provider "gke" }}
+  annotations:
+    iam.gke.io/gcp-service-account: {{ .Values.jxRequirements.cluster.clusterName }}-tekton@{{ .Values.jxRequirements.cluster.project }}.iam.gserviceaccount.com
+  {{- else }}
+  annotations: {}
+  {{- end }}
+secrets:
+  - name: tekton-git
+  - name: docker-registry-auth

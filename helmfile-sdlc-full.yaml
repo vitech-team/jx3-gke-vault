@@ -130,15 +130,21 @@ releases:
       - versionStream/charts/jx3/jx-build-controller/values.yaml.gotmpl
     forceNamespace: ""
     skipDeps: null
-  - chart: ./charts/dev/tektonpipelines
-    version: 0.1.0
-    name: tektonpipelines
-    namespace: jx
+  - chart: stable/nfs-server-provisioner
+    version: 1.1.1
+    name: nfs
+    namespace: nfs
+    values:
+      - charts/stable/nfs-server-provisioner/values.yaml
+    forceNamespace: ""
+    skipDeps: null
   - chart: ./charts/dev/keycloak
     name: keycloak
     namespace: keycloak
     values:
       - charts/dev/keycloak/values.yaml.gotmpl
+    forceNamespace: ""
+    skipDeps: null
   - chart: prometheus-community/kube-prometheus-stack
     version: 10.3.3
     name: monitoring
@@ -146,14 +152,50 @@ releases:
     values:
       - charts/prometheus-community/kube-prometheus-stack/values.yaml
       - charts/prometheus-community/kube-prometheus-stack/values.yaml.gotmpl
+    forceNamespace: ""
+    skipDeps: null
   - chart: ./charts/dev/prometheusmonitors
     version: 0.1.0
     name: prometheusmonitors
     namespace: monitoring
+    forceNamespace: ""
+    skipDeps: null
+  - chart: ./charts/dev/largetests
+    version: 0.1.0
+    name: large-tests
+    namespace: jx
+    values:
+      - charts/dev/largetests/values.yaml.gotmpl
+    forceNamespace: ""
+    skipDeps: null
   - chart: ./charts/dev/secret
     version: 0.1.0
     name: secret
     namespace: jx
+    forceNamespace: ""
+    skipDeps: null
+  - chart: ./charts/dev/tektonpipelines
+    version: 0.1.0
+    name: tektonpipelines
+    namespace: jx
+    forceNamespace: ""
+    skipDeps: null
+  - chart: stable/mysql
+    version: 1.6.6
+    name: mysql
+    namespace: jx-staging
+    values:
+      - charts/stable/mysql/values.yaml
+    forceNamespace: ""
+    skipDeps: null
+  - chart: stable/mysql
+    version: 1.6.6
+    name: mysql
+    namespace: jx-production
+    values:
+      - charts/stable/mysql/values.yaml
+    forceNamespace: ""
+    skipDeps: null
 templates: { }
 missingFileHandler: ""
 renderedvalues: { }

@@ -1,0 +1,13 @@
+apiVersion: v2
+name: largetests
+description: A Helm chart for  any kind reports which need to be stored for example Large Test repots
+type: application
+version: 0.1.0
+dependencies:
+  - name: nginx
+    repository: https://charts.bitnami.com/bitnami
+    version: 6.2.1
+  - name: selenium
+    repository: https://charts.helm.sh/stable
+    version: 1.2.0
+

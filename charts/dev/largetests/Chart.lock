@@ -1,0 +1,9 @@
+dependencies:
+- name: nginx
+  repository: https://charts.bitnami.com/bitnami
+  version: 6.2.1
+- name: selenium
+  repository: https://charts.helm.sh/stable
+  version: 1.2.0
+digest: sha256:4bcb9ee952289c06a5d1dcd0f7004fec03aee54107c0a959386544ada0a4f7b6
+generated: "2020-10-29T06:03:05.870002027Z"

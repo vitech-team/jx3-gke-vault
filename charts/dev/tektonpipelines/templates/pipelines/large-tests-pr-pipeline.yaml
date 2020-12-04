@@ -1,0 +1,87 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: large-tests-pr-check
+  annotations:
+    tekton.dev/pipelines.minVersion: "0.12.1"
+    tekton.dev/tags: large-tests
+spec:
+  description: >-
+    TODO
+  params:
+  - name: REPORTS_PVC_NAME
+    default: "large-test"
+  - name: PULL_NUMBER
+    description: PR id
+  stepTemplate:
+    name: ""
+    volumeMounts:
+    - mountPath: /large-test-reports
+      name: large-test-reports
+    workingDir: /workspace/source
+  results: []
+  steps:
+  - name: get-pr-info
+    image: 'gcr.io/jenkinsxio/jx-cli:latest'
+    workingDir: /workspace/source
+    script: |
+      #!/usr/bin/env bash
+      if [[ -n "${PULL_NUMBER}" ]]; then
+        jx gitops pr get --git-token="$GIT_TOKEN" --pr="${PULL_NUMBER}" &> pr.yaml
+      fi
+    env:
+    - name: GIT_TOKEN
+      valueFrom:
+        secretKeyRef:
+          name: jx-pipeline-git-github-github
+          key: password
+  - name: save-promotion-label
+    workingDir: /workspace/source
+    image: python:latest
+    script: |
+      pip install pyyaml
+      python -m script.large_test_utils
+      python -c 'from script.large_test_utils import update_promotion_label; update_promotion_label()'
+  - name: check-promotion
+    workingDir: /workspace/source
+    image: python:latest
+    script: |
+      #!/usr/bin/env bash
+      echo "Promotion to prod verification..."
+      cat .promotion_label
+      if grep -w "production" .promotion_label; then
+        echo "Large test check before promote PR for:"
+        export PR_LAST=$(cat /workspace/source/.pr-last)
+        export GIT_SHA=$(git rev-parse master)
+        export REPORT_FOLDER=/large-test-reports
+        export ENV=production
+        pip install pyyaml
+        python -m script.large_test_utils
+        python -c 'from script.large_test_utils import print_comment; print_comment()' > .test_comment
+        python -c 'from script.large_test_utils import check_versions; check_versions()' > .test_status
+        if [[ "$(cat .test_status)" == "True" ]]; then
+          echo "Large test check passed"
+        else
+          echo "Large test not passed. Promotion stopped!"
+        fi
+      else
+        echo "Skipped because PR not making promotion to prod"
+      fi
+  - name: comment
+    workingDir: /workspace/source
+    image: 'gcr.io/jenkinsxio/jx-cli:latest'
+    script: |
+      if grep -w "production" .promotion_label; then
+        if grep -w "True" .test_status; then
+          jx gitops pr comment --comment="[Large tests for specified versions passed.]"
+          jx gitops pr comment --comment="$(cat .test_comment)"
+        else
+          jx gitops pr comment --comment=":x: [Large tests for specified versions not passed :hot_face: !]"
+          jx gitops pr comment --comment="$(cat .test_comment)"
+          exit 1
+        fi
+      fi
+  volumes:
+  - name: large-test-reports
+    persistentVolumeClaim:
+      claimName: $(params.REPORTS_PVC_NAME)

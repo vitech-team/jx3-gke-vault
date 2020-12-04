@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.pvc.name }}-config
+data:
+  reports.pvc.name: {{ .Values.pvc.name | quote }}
+  {{range $i, $host := .Values.nginx.ingress.hosts}}
+  nginx.url{{ $i }}: http://{{ $host.name }}
+  {{ end }}
+  {{range $j, $host := .Values.selenium.hub.ingress.hosts}}
+  selenium.hub.url{{ $j }}: {{ $host }}
+  {{ end }}
+  selenium.hub.port: "80"
