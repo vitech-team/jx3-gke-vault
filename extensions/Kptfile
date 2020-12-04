@@ -1,0 +1,10 @@
+apiVersion: kpt.dev/v1alpha1
+kind: Kptfile
+metadata:
+  name: schedulers
+upstream:
+  type: git
+  git:
+    repo: https://github.com/vitech-team/jx3-gke-vault
+    directory: /extensions
+    ref: master

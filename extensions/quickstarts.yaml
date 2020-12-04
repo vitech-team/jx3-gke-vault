@@ -2,7 +2,15 @@ apiVersion: project.jenkins-x.io/v1alpha1
 kind: Quickstarts
 spec:
   # custom quickstarts
-  quickstarts: []
+  quickstarts:
+    - downloadZipURL: https://github.com/vitech-team/mood-feed-backend/archive/quickstart.zip
+      language: Java
+      name: vitech-sdlc-java-backend
+      version: 1.0.0
+    - downloadZipURL: https://github.com/vitech-team/mood-feed-frontend/archive/jx.zip
+      language: Angular
+      name: vitech-sdlc-frontend
+      version: 1.0.0
 
   # shared quickstarts
   imports:

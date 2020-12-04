@@ -5,3 +5,6 @@ spec:
   - label: JX3 Pipeline Catalog
     gitUrl: https://github.com/jenkins-x/jx3-pipeline-catalog
     gitRef: master
+  - label: VITech
+    gitUrl: https://github.com/vitech-team/tekton-pipelines-catalog.git
+    gitRef: master
