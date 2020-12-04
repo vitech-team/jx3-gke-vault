@@ -1,0 +1,20 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  annotations:
+    lighthouse.jenkins-x.io/loadFileRefs: .*
+    lighthouse.jenkins-x.io/prependStepsURL: https://raw.githubusercontent.com/jenkins-x/jx3-pipeline-catalog/005e78cf69b643862344397a635736a51dd1bd89/tasks/git-clone/git-clone-pr.yaml
+  name: large-tests-pr-check
+spec:
+  pipelineSpec:
+    tasks:
+    - name: large-tests-pr-check
+      taskRef:
+        name: large-tests-pr-check
+      params:
+      - name: REPORTS_PVC_NAME
+        value: "large-test"
+      - name: PULL_NUMBER
+        value: "$(params.PULL_NUMBER)"
+  serviceAccountName: tekton-bot
+  timeout: 10m
