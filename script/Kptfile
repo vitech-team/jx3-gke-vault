@@ -5,6 +5,7 @@ metadata:
 upstream:
   type: git
   git:
+    commit: 4fb67f7f8f6ec513eaf2be751c200eb1e78651f1
     repo: https://github.com/vitech-team/jx3-gke-vault
-    directory: /script
+    directory: script
     ref: master
