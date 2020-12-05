@@ -138,11 +138,12 @@ releases:
   namespace: jx
   forceNamespace: ""
   skipDeps: null
-- chart: ./charts/dev/keycloak
+- chart: vitech-sdlc/keycloak
   name: keycloak
   namespace: keycloak
   values:
-  - charts/dev/keycloak/values.yaml.gotmpl
+  - charts/vitech-sdlc/keycloak/values.yaml
+  - charts/vitech-sdlc/keycloak/values.yaml.gotmpl
   forceNamespace: ""
   skipDeps: null
 - chart: prometheus-community/kube-prometheus-stack
