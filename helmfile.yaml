@@ -155,12 +155,14 @@ releases:
   - charts/prometheus-community/kube-prometheus-stack/values.yaml.gotmpl
   forceNamespace: ""
   skipDeps: null
-- chart: ./charts/dev/prometheusmonitors
+- chart: vitech-sdlc/monitoring
   version: 0.1.0
-  name: prometheusmonitors
+  name: prometheus-monitors
   namespace: monitoring
   forceNamespace: ""
   skipDeps: null
+  values:
+    - charts/vitech-sdlc/monitoring/values.yaml
 - chart: vitech-sdlc/secret
   version: 0.1.0
   name: secret

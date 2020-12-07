@@ -160,12 +160,12 @@ releases:
     namespace: monitoring
     forceNamespace: ""
     skipDeps: null
-  - chart: ./charts/dev/largetests
+  - chart: vitech-sdlc/largetests
     version: 0.1.0
     name: large-tests
     namespace: jx
     values:
-      - charts/dev/largetests/values.yaml.gotmpl
+      - charts/vitech-sdlc/largetests/values.yaml.gotmpl
     forceNamespace: ""
     skipDeps: null
   - chart: ./charts/dev/secret
