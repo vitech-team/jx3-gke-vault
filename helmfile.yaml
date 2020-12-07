@@ -159,18 +159,18 @@ releases:
   version: 0.1.0
   name: prometheus-monitors
   namespace: monitoring
+  values:
+  - charts/vitech-sdlc/monitoring/values.yaml
   forceNamespace: ""
   skipDeps: null
-  values:
-    - charts/vitech-sdlc/monitoring/values.yaml
 - chart: vitech-sdlc/secret
   version: 0.1.0
   name: secret
   namespace: jx
+  values:
+  - charts/vitech-sdlc/secret/values.yaml
   forceNamespace: ""
   skipDeps: null
-  values:
-    - charts/vitech-sdlc/secret/values.yaml
 templates: {}
 missingFileHandler: ""
 renderedvalues: {}

@@ -34,9 +34,9 @@ spec:
     imagePullPolicy: IfNotPresent
     workingDir: $(workspaces.source.path)
     command:
-      - gradle
+    - gradle
     args:
-      - "$(params.ARGS[*])"
+    - "$(params.ARGS[*])"
     env:
-      - name: _JAVA_OPTIONS
-        value: $(params.JAVA_OPTIONS)
+    - name: _JAVA_OPTIONS
+      value: $(params.JAVA_OPTIONS)
