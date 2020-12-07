@@ -179,14 +179,14 @@ spec:
         fi
 
     - name: jx-variables
-      image: gcr.io/jenkinsxio/jx-boot:3.0.755
+      image: gcr.io/jenkinsxio/jx-cli:latest
       workingDir: $(workspaces.source.path)
       script: |
         #!/usr/bin/env sh
         jx gitops variables
 
     - name: jx-variables-results
-      image: gcr.io/jenkinsxio/jx-boot:3.0.755
+      image: gcr.io/jenkinsxio/jx-cli:latest
       script: |
         #!/usr/bin/env bash
         source $(workspaces.source.path)/.jx/variables.sh
