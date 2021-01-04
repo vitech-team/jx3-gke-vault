@@ -1,10 +1,9 @@
 apiVersion: project.jenkins-x.io/v1alpha1
 kind: PipelineCatalog
+metadata:
+  creationTimestamp: null
 spec:
   repositories:
-  - label: JX3 Pipeline Catalog
+  - gitRef: 1da242c69ae91555d14dc696eb4a287ffa560075
     gitUrl: https://github.com/jenkins-x/jx3-pipeline-catalog
-    gitRef: master
-  - label: VITech
-    gitUrl: https://github.com/vitech-team/tekton-pipelines-catalog.git
-    gitRef: master
+    label: JX3 Pipeline Catalog
