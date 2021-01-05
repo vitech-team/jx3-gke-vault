@@ -13,6 +13,8 @@ repositories:
   url: https://storage.googleapis.com/jenkinsxio/charts
 - name: stable
   url: https://charts.helm.sh/stable
+- name: vitech-sdlc
+  url: https://vitech-team.github.io/sdlc-charts
 releases:
 - chart: bitnami/external-dns
   version: 3.2.0
@@ -75,5 +77,11 @@ releases:
   values:
   - ../../versionStream/charts/jx3/jx-build-controller/values.yaml.gotmpl
   - jx-values.yaml
+- chart: vitech-sdlc/secret
+  version: 0.1.0
+  name: secret
+  values:
+    - ../../charts/vitech-sdlc/secret/values.yaml
+    - jx-values.yaml
 templates: {}
 renderedvalues: {}

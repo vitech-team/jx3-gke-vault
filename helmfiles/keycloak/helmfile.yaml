@@ -1,0 +1,18 @@
+filepath: ""
+environments:
+  default:
+    values:
+    - jx-values.yaml
+namespace: keycloak
+repositories:
+- name: vitech-sdlc
+  url: https://vitech-team.github.io/sdlc-charts
+releases:
+- chart: vitech-sdlc/keycloak
+  name: keycloak
+  values:
+  - ../../charts/vitech-sdlc/keycloak/values.yaml
+  - ../../charts/vitech-sdlc/keycloak/values.yaml.gotmpl
+  - jx-values.yaml
+templates: {}
+renderedvalues: {}
