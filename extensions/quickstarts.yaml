@@ -3,13 +3,17 @@ kind: Quickstarts
 spec:
   # custom quickstarts
   quickstarts:
-  - downloadZipURL: https://github.com/vitech-team/mood-feed-backend/archive/quickstart.zip
+  - downloadZipURL: https://github.com/vitech-team/sdlc-java-gradle/archive/master.zip
     language: Java
-    name: vitech-sdlc-java-backend
+    name: vitech-sdlc-java-gradle
     version: 1.0.0
-  - downloadZipURL: https://github.com/vitech-team/mood-feed-frontend/archive/jx.zip
+  - downloadZipURL: https://github.com/vitech-team/sdlc-angular/archive/master.zip
     language: Angular
-    name: vitech-sdlc-frontend
+    name: vitech-sdlc-angular
+    version: 1.0.0
+  - downloadZipURL: https://github.com/vitech-team/sdlc-react/archive/main.zip
+    language: react
+    name: vitech-sdlc-react
     version: 1.0.0
   # shared quickstarts
   imports:
