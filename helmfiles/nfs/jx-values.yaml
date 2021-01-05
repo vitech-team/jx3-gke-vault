@@ -3,7 +3,8 @@
 # This file is created from the jx-requirements.yml and jx-global-values.yaml files.
 # For more information see: https://jenkins-x.io/v3/develop/apps/#using-requirements-in-charts
 jx:
-  imagePullSecrets: []
+  imagePullSecrets:
+  - docker-registry-auth
   secrets:
     adminUser:
       password: todo
@@ -19,7 +20,7 @@ jxRequirements:
     schedule: ""
   cluster:
     devEnvApprovers:
-      - todo
+    - todo
     environmentGitOwner: todo
     gitKind: github
     gitName: github
@@ -27,13 +28,13 @@ jxRequirements:
     provider: gke
     registry: gcr.io
   environments:
-    - key: dev
-    - key: staging
-    - key: production
+  - key: dev
+  - key: staging
+  - key: production
   ingress:
     domain: ""
     externalDNS: false
-    namespaceSubDomain: -jx.
+    namespaceSubDomain: -nfs.
     tls:
       email: ""
       enabled: false

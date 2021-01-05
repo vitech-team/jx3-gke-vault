@@ -3,7 +3,8 @@
 # This file is created from the jx-requirements.yml and jx-global-values.yaml files.
 # For more information see: https://jenkins-x.io/v3/develop/apps/#using-requirements-in-charts
 jx:
-  imagePullSecrets: []
+  imagePullSecrets:
+  - docker-registry-auth
   secrets:
     adminUser:
       password: todo

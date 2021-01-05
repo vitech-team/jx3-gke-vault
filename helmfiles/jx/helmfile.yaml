@@ -81,7 +81,7 @@ releases:
   version: 0.1.0
   name: secret
   values:
-    - ../../charts/vitech-sdlc/secret/values.yaml
-    - jx-values.yaml
+  - ../../charts/vitech-sdlc/secret/values.yaml
+  - jx-values.yaml
 templates: {}
 renderedvalues: {}
