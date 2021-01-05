@@ -17,10 +17,10 @@ releases:
   - ../../versionStream/charts/cdf/tekton-pipeline/values.yaml.gotmpl
   - jx-values.yaml
 - chart: vitech-sdlc/tektonpipelines
-  version: 0.1.0
+  version: 0.2.0
   name: tektonpipelines
   values:
-    - jx-values.yaml
     - ../../charts/vitech-sdlc/tektonpipelines/values.yaml
+    - jx-values.yaml
 templates: {}
 renderedvalues: {}
