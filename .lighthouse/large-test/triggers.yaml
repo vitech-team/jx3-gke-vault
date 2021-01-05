@@ -2,11 +2,9 @@ apiVersion: config.lighthouse.jenkins-x.io/v1alpha1
 kind: TriggerConfig
 spec:
   presubmits:
-  - name: large-test-check
-    context: "large-test-check"
+  - name: large-tests
+    context: "large-tests"
     always_run: false
     optional: true
-    trigger: (?m)^/test( all| ltc),?(s+|$)
-    rerun_command: /test ltc
     source: "large-tests-check-pipeline.yaml"
   postsubmits:
