@@ -9,4 +9,4 @@ spec:
     label: JX3 Pipeline Catalog
   - label: VITech-SDLC
     gitUrl: https://github.com/vitech-team/tekton-pipelines-catalog.git
-    gitRef: v0.0.3
+    gitRef: v0.0.4
