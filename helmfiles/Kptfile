@@ -1,11 +1,11 @@
 apiVersion: kpt.dev/v1alpha1
 kind: Kptfile
 metadata:
-  name: schedulers
+  name: script
 upstream:
   type: git
   git:
     commit: e6f13ac860c3c83cc272b88644c556ad1dc26424
     repo: https://github.com/vitech-team/jx3-gke-vault
-    directory: /schedulers
+    directory: /helmfiles
     ref: master
