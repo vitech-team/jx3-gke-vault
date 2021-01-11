@@ -34,6 +34,7 @@ jxRequirements:
   ingress:
     domain: ""
     externalDNS: false
+    kind: ingress
     namespaceSubDomain: -tekton-pipelines.
     tls:
       email: ""
@@ -46,6 +47,10 @@ jxRequirements:
 jxRequirementsIngressExternalDNS:
   enabled: false
 jxRequirementsIngressTLS:
+  enabled: false
+jxRequirementsKuberhealthy:
+  enabled: false
+jxRequirementsTLSCheck:
   enabled: false
 jxRequirementsVault:
   enabled: true
