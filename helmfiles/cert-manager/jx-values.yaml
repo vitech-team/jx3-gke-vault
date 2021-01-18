@@ -5,6 +5,7 @@
 jx:
   imagePullSecrets:
   - docker-registry-auth
+  pipelineVariables: {}
   secrets:
     adminUser:
       password: todo
