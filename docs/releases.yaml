@@ -363,7 +363,7 @@
     - https://github.com/external-secrets/kubernetes-external-secrets
     version: 6.2.2
   - apiVersion: v1
-    appVersion: 0.4.12
+    appVersion: v0.4.0
     description: wave chart that runs on kubernetes
     home: https://github.com/pusher/wave
     keywords:
@@ -374,7 +374,7 @@
     repositoryUrl: https://storage.googleapis.com/jenkinsxio/charts
     sources:
     - https://github.com/pusher/wave
-    version: 0.4.12
+    version: 0.4.16
 - namespace: secret-infra
   path: helmfiles/secret-infra/helmfile.yaml
   releases:
@@ -392,7 +392,7 @@
     - https://github.com/external-secrets/kubernetes-external-secrets
     version: 6.2.2
   - apiVersion: v1
-    appVersion: 0.4.12
+    appVersion: v0.4.0
     description: wave chart that runs on kubernetes
     home: https://github.com/pusher/wave
     keywords:
@@ -403,7 +403,7 @@
     repositoryUrl: https://storage.googleapis.com/jenkinsxio/charts
     sources:
     - https://github.com/pusher/wave
-    version: 0.4.12
+    version: 0.4.16
 - namespace: tekton-pipelines
   path: helmfiles/tekton-pipelines/helmfile.yaml
   releases:
