@@ -81,14 +81,12 @@ releases:
   version: 0.2.0
   name: secret
   values:
-  - ../../charts/vitech-sdlc/secret/values.yaml
   - jx-values.yaml
   - ../../versionStream/charts/vitech-sdlc/secret/values.yaml
 - chart: vitech-sdlc/tektonpipelines
   version: 0.9.10
   name: tektonpipelines
   values:
-  - ../../charts/vitech-sdlc/tektonpipelines/values.yaml
   - jx-values.yaml
   - ../../versionStream/charts/vitech-sdlc/tektonpipelines/values.yaml
 templates: {}

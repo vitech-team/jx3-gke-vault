@@ -2,19 +2,7 @@ apiVersion: project.jenkins-x.io/v1alpha1
 kind: Quickstarts
 spec:
   # custom quickstarts
-  quickstarts:
-  - downloadZipURL: https://github.com/vitech-team/sdlc-java-gradle/archive/master.zip
-    language: Java
-    name: vitech-sdlc-java-gradle
-    version: 1.0.0
-  - downloadZipURL: https://github.com/vitech-team/sdlc-angular/archive/master.zip
-    language: Angular
-    name: vitech-sdlc-angular
-    version: 1.0.0
-  - downloadZipURL: https://github.com/vitech-team/sdlc-react/archive/main.zip
-    language: react
-    name: vitech-sdlc-react
-    version: 1.0.0
+  quickstarts: []
   # shared quickstarts
   imports:
   - file: versionStream/quickstarts.yaml

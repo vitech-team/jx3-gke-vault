@@ -1,5 +1,0 @@
-metrics:
-  enabled: true
-initdbScripts:
-  spectrum.sql: |-
-    CREATE DATABASE IF NOT EXISTS test DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
