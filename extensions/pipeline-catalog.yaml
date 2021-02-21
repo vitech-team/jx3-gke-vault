@@ -7,6 +7,6 @@ spec:
   - gitRef: 071747459f2bb1f3307e760b3311e312563ca76d
     gitUrl: https://github.com/jenkins-x/jx3-pipeline-catalog
     label: JX3 Pipeline Catalog
-  - gitRef: v0.0.5
+  - gitRef: v0.0.6
     gitUrl: https://github.com/vitech-team/tekton-pipelines-catalog.git
     label: VITech-SDLC
