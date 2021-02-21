@@ -3,12 +3,10 @@ keycloak:
     - name: keycloak-relams
       secret:
         secretName: keycloak-relams
-
   extraVolumeMounts: |
     - name: keycloak-relams
       mountPath: "/realm/"
       readOnly: true
-
   extraEnv: |
     - name: KEYCLOAK_IMPORT
       value: /realm/default-relam.json
