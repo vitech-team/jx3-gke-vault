@@ -2,16 +2,20 @@ apiVersion: config.lighthouse.jenkins-x.io/v1alpha1
 kind: TriggerConfig
 spec:
   presubmits:
+  - name: eks
+    context: "eks"
+    always_run: false
+    optional: false
+    trigger: (?m)^/test( all| eks),?(s+|$)
+    rerun_command: /test eks
+    source: "pullrequest-eks.yaml"
   - name: ghe
     context: "ghe"
     always_run: false
     optional: false
     trigger: (?m)^/test( all| ghe),?(s+|$)
     rerun_command: /test ghe
-    source: "pullrequest.yaml"
-    pipeline_run_params:
-    - name: "BDD_GIT_TOKEN_SECRET"
-      value_template: "bdd-pipeline-token-github-ghe"
+    source: "pullrequest-ghe.yaml"
   - name: gsm
     context: "gsm"
     always_run: true

@@ -15,5 +15,6 @@ releases:
   values:
   - ../../charts/stable/nfs-server-provisioner/values.yaml
   - jx-values.yaml
+  - ../../versionStream/charts/stable/nfs-server-provisioner/values.yaml
 templates: {}
 renderedvalues: {}

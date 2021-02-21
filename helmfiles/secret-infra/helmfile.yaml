@@ -13,7 +13,7 @@ repositories:
   url: https://storage.googleapis.com/jenkinsxio/charts
 releases:
 - chart: external-secrets/kubernetes-external-secrets
-  version: 6.0.0
+  version: 6.3.0
   name: kubernetes-external-secrets
   values:
   - ../../versionStream/charts/external-secrets/kubernetes-external-secrets/values.yaml.gotmpl
@@ -24,12 +24,12 @@ releases:
   values:
   - jx-values.yaml
 - chart: jx3/vault-instance
-  version: 1.0.13
+  version: 1.0.15
   name: vault-instance
   values:
   - jx-values.yaml
 - chart: jx3/pusher-wave
-  version: 0.4.12
+  version: 0.4.16
   name: pusher-wave
   values:
   - jx-values.yaml

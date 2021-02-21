@@ -1,0 +1,19 @@
+grafana:
+    testFramework:
+        enabled: false
+    ingress:
+        enabled: true
+        hosts:
+            - grafana.{{ .Values.jxRequirements.ingress.domain | default "cluster.local" }}
+
+alertmanager:
+    ingress:
+        enabled: true
+        hosts:
+            - alertmanager.{{ .Values.jxRequirements.ingress.domain | default "cluster.local" }}
+
+prometheus:
+    ingress:
+        enabled: true
+        hosts:
+            - prometheus.{{ .Values.jxRequirements.ingress.domain | default "cluster.local" }}

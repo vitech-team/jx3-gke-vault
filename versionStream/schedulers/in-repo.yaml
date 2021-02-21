@@ -10,7 +10,7 @@ spec:
   merger:
     blocker_label: ""
     max_goroutines: 0
-    merge_method: merge
+    merge_method: squash
     policy:
       from-branch-protection: true
       optional-contexts: {}
@@ -18,7 +18,7 @@ spec:
       required-if-present-contexts: {}
       skip-unknown-contexts: false
     pr_status_base_url: ""
-    squash_label: ""
+    squash_label: "squash"
     target_url: http://dashboard{{ .Requirements.ingress.namespaceSubDomain }}{{ .Requirements.ingress.domain
       }}
   # lets look in the source repository for trigger files
