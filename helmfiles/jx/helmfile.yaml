@@ -78,7 +78,7 @@ releases:
   - ../../versionStream/charts/jx3/jx-build-controller/values.yaml.gotmpl
   - jx-values.yaml
 - chart: vitech-sdlc/secret
-  version: 0.2.0
+  version: 0.1.0
   name: secret
   values:
     - jx-values.yaml
