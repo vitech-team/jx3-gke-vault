@@ -14,15 +14,13 @@ releases:
   version: 10.3.3
   name: monitoring
   values:
-  - ../../charts/prometheus-community/kube-prometheus-stack/values.yaml
-  - ../../charts/prometheus-community/kube-prometheus-stack/values.yaml.gotmpl
   - jx-values.yaml
+  - ../../versionStream/charts/prometheus-community/kube-prometheus-stack/values.yaml
   - ../../versionStream/charts/prometheus-community/kube-prometheus-stack/values.yaml.gotmpl
 - chart: vitech-sdlc/monitoring
   version: 0.1.0
   name: prometheus-monitors
   values:
-  - ../../charts/vitech-sdlc/monitoring/values.yaml
   - jx-values.yaml
   - ../../versionStream/charts/vitech-sdlc/monitoring/values.yaml
 templates: {}

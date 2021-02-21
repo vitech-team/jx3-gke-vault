@@ -13,7 +13,6 @@ releases:
   name: nfs
   namespace: nfs
   values:
-  - ../../charts/stable/nfs-server-provisioner/values.yaml
   - jx-values.yaml
   - ../../versionStream/charts/stable/nfs-server-provisioner/values.yaml
 templates: {}

@@ -12,9 +12,8 @@ releases:
   version: 0.1.0
   name: keycloak
   values:
-  - ../../charts/vitech-sdlc/keycloak/values.yaml
-  - ../../charts/vitech-sdlc/keycloak/values.yaml.gotmpl
   - jx-values.yaml
+  - ../../versionStream/charts/vitech-sdlc/keycloak/values.yaml
   - ../../versionStream/charts/vitech-sdlc/keycloak/values.yaml.gotmpl
 templates: {}
 renderedvalues: {}
