@@ -5,7 +5,7 @@ metadata:
 upstream:
   type: git
   git:
-    commit: 16cb3fbaa1017825e7e2ddfbd03cfe788bf74d83
+    commit: 8a0363f6a6c78a082bf9992d86c032e5323fcb4d
     repo: https://github.com/vitech-team/jx3-gke-vault
     directory: /extensions
     ref: master
