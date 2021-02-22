@@ -84,7 +84,7 @@ releases:
   - jx-values.yaml
   - ../../versionStream/charts/vitech-sdlc/secret/values.yaml
 - chart: vitech-sdlc/tektonpipelines
-  version: 0.9.13
+  version: 0.9.14
   name: tektonpipelines
   values:
   - jx-values.yaml
