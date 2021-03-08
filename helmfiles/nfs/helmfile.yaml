@@ -14,7 +14,6 @@ releases:
   namespace: nfs
   values:
   - jx-values.yaml
-  - ../../versionStream/charts/stable/nfs-server-provisioner/values.yaml
   - ../../versionStream/charts/stable/nfs-server-provisioner/values.yaml.gotmpl
 templates: {}
 renderedvalues: {}
