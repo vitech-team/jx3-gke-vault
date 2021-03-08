@@ -5,7 +5,7 @@ metadata:
 upstream:
   type: git
   git:
-    commit: d3acfa0a7db5fa0b190773d16bccd9b1488651c5
+    commit: 6e8a6815ea69823a8d4ec444dcaf4e2d1e1a8306
     repo: https://github.com/vitech-team/jx3-gke-vault
     directory: /schedulers
     ref: master
