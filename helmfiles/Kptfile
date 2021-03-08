@@ -5,7 +5,7 @@ metadata:
 upstream:
   type: git
   git:
-    commit: 148d1136d184d936d43c8fbcb04232a6408a344f
+    commit: d3acfa0a7db5fa0b190773d16bccd9b1488651c5
     repo: https://github.com/vitech-team/jx3-gke-vault
     directory: /helmfiles
     ref: master
