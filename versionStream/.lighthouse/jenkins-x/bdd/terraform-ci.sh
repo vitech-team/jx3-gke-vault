@@ -91,7 +91,7 @@ export TERRAFORM_INPUT="-input=false"
 # ensure buckets are cleaned up for CI
 export TF_VAR_force_destroy=true
 
-export PROJECT_ID=jenkins-x-labs-bdd
+export PROJECT_ID=jenkins-x-labs-bdd1
 export CREATED_TIME=$(date '+%a-%b-%d-%Ybin/ main.tf values.auto.tfvars terraform.tfstate variables.tf-%H-%M-%S')
 export CLUSTER_NAME="${BRANCH_NAME,,}-$BUILD_NUMBER-$BDD_NAME"
 export ZONE=europe-west1-c
@@ -157,6 +157,9 @@ pushd `pwd`/cluster-${CLUSTER_NAME}-dev
       rm -rf versionStream/.git versionStream/.github
       git add versionStream/
 
+      # lets remove the old files...
+      rm -rf .jx/git-operator/filename.txt
+
       # lets add some testing charts....
       jx gitops helmfile add --chart jx3/jx-test-collector
 
@@ -165,6 +168,15 @@ pushd `pwd`/cluster-${CLUSTER_NAME}-dev
 
       # lets upgrade any versions in helmfile.yaml
       jx gitops helmfile resolve --update
+
+      # any git repo overrides...
+      if [ -z "$JX_GIT_OVERRIDES" ]
+      then
+          export JX_GIT_OVERRIDES="echo no git overrides"
+      else
+          echo "invoking: ${SOURCE_DIR}/${JX_GIT_OVERRIDES}"
+          ${SOURCE_DIR}/${JX_GIT_OVERRIDES}
+      fi
 
       # lets add a custom pipeline catalog for the test...
       #cp $SOURCE_DIR/.lighthouse/jenkins-x/bdd/pipeline-catalog.yaml extensions
